@@ -1,0 +1,479 @@
+% ============================================================
+% BESE SAR Draft 2026 — Main LaTeX Document
+% Structure:
+%   Chapter 1  : Introduction (chapter1_introduction.tex)
+%   Chapter 2  : Criterion 1 — Program Educational Objectives
+%   Chapter 3  : Criterion 2 — Program Learning Outcomes
+%   ...
+%   Chapter 10 : Criterion 9 — Industrial Linkages
+% Upload the entire folder to Overleaf as a new project.
+% ============================================================
+
+\PassOptionsToPackage{table,dvipsnames}{xcolor}
+\documentclass[12pt, a4paper]{report}
+
+% ---- Encoding & Language ----
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% ---- Page Layout ----
+\usepackage[a4paper, top=1in, bottom=1in, left=1.25in, right=1in]{geometry}
+
+% ---- Typography ----
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{setspace}
+\onehalfspacing
+\hbadness=10000
+\hfuzz=10000pt
+\vbadness=10000
+\vfuzz=10000pt
+
+% ---- comment out ----
+\usepackage{comment}
+
+% ---- Graphics ----
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{pdflscape}
+\usepackage{pdfpages}
+\usepackage{needspace}
+\usepackage{caption}
+
+% ---- Tables ----
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{blindtext}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\tabcolsep}{3pt}
+\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+% ---- Colours ----
+\usepackage[table, dvipsnames]{xcolor}
+
+% ---- Hyperlinks ----
+\usepackage[colorlinks=true, linkcolor=NavyBlue, urlcolor=NavyBlue, citecolor=NavyBlue]{hyperref}
+
+% ---- Header / Footer ----
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\scriptsize\textit{BESE SAR 2026}}
+\fancyhead[R]{\scriptsize\nouppercase{\textit{\leftmark}}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\setlength{\headheight}{18pt}
+
+% ---- Chapter heading style ----
+% ---- Chapter, Section and Subsection Heading Styles ----
+\usepackage{titlesec}
+
+% Chapter title: \large, bold
+\titleformat{\chapter}[display]
+  {\normalfont\Large\bfseries}
+  {\chaptername\ \thechapter}
+  {18pt}
+  {\Large}
+
+\titlespacing*{\chapter}
+  {0pt}{2pt}{2pt}
+
+% Section title: \large, bold
+\titleformat{\section}
+  {\normalfont\large\bfseries}
+  {\thesection}
+  {1em}
+  {}
+
+\titlespacing*{\section}
+  {0pt}{1.5ex}{1.5ex}
+
+% Subsection title: \normalsize, bold
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries}
+  {\thesubsection}
+  {1em}
+  {}
+
+\titlespacing*{\subsection}
+  {0pt}{1ex}{1ex}
+
+% ---- Misc ----
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{comment}
+\makeatletter
+\g@addto@macro\@arrayparboxrestore{\hbadness=10000\hfuzz=\maxdimen\vbadness=10000\vfuzz=\maxdimen}
+\g@addto@macro\@parboxrestore{\hbadness=10000\hfuzz=\maxdimen\vbadness=10000\vfuzz=\maxdimen}
+\makeatother
+
+% Fix pandoc macros
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Include annexure PDFs when available; otherwise show the missing source path.
+\newcommand{\missingannexure}[1]{%
+  \begin{center}
+  \fbox{\begin{minipage}{0.9\textwidth}
+  \centering\textbf{Missing annexure source file}\\[0.4em]
+  \nolinkurl{#1}
+  \end{minipage}}
+  \end{center}}
+\newcommand{\includefullannexure}[1]{%
+  \IfFileExists{#1}{\includepdf[pages=-]{#1}}{\missingannexure{#1}}}
+\newcommand{\includeminutesannexure}[1]{%
+  \IfFileExists{#1}{%
+    \begin{center}
+    \includegraphics[page=1,width=0.92\textwidth]{#1}
+    \end{center}
+    \includepdf[pages=2-]{#1}%
+  }{\missingannexure{#1}}}
+
+% ============================================================
+
+\makeatletter
+\let\prism@old@GenericWarning\GenericWarning
+\def\GenericWarning#1#2{%
+  \def\prism@warningtext{#2}%
+  \def\prism@splitwarning{ignored error: Infinite glue shrinkage found in box being split}%
+  \ifx\prism@warningtext\prism@splitwarning
+  \else
+    \prism@old@GenericWarning{#1}{#2}%
+  \fi}
+\makeatother
+
+
+
+
+
+
+\setcounter{secnumdepth}{3} %to enable numbering for subsubsections
+\setcounter{tocdepth}{1} %to make subsubsections appear in Table of Contents
+
+\begin{document}
+\raggedbottom
+\hbadness=10000
+\hfuzz=\maxdimen
+\vbadness=10000
+\vfuzz=\maxdimen
+\hypersetup{pageanchor=false}
+
+% ---- Title Page ----
+\begin{titlepage}
+  \centering
+  \includegraphics[width=1.59788in,height=1.6in]{images/front_matter/media/image1.jpeg}
+
+  \vspace*{1.5cm}
+  {\Large\bfseries National University of Sciences \& Technology (NUST)\\[0.4em]
+  School of Electrical Engineering and Computer Science (SEECS)\\[0.4em]
+  Department of Software Engineering\par}
+  \vspace{1.5cm}
+  {\Huge\bfseries Self-Assessment Report\\[0.5em]}
+  {\Large\bfseries BE Software Engineering\par}
+  \vspace{1cm}
+  {\large Submitted to EAB / EA\&QEC of Pakistan Engineering Council\par}
+  %\vfill
+  \begin{center}
+  \includegraphics[width=1.59788in,height=1.6in]{images/front_matter/media/image2.jpeg}\par
+  \vspace{0.5cm}
+  {\large October 2026\par}
+  \end{center}
+\end{titlepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title / Cover Approval Pages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\Large\textbf{School of Electrical Engineering and Computer Science (SEECS)}}\\[0.3cm]
+
+{\large\textbf{National University of Sciences and Technology (NUST)}}\\[0.2cm]
+
+Sector H-12, Islamabad-44000, Pakistan
+\end{center}
+
+\vspace{0.5cm}
+
+\noindent
+\textbf{Subject: \underline{SAR for the Program of BE Software Engineering}}
+
+\vspace{0.5cm}
+
+\begin{enumerate}
+\item The requirements as per the Check List below to qualify for the process of accreditation under the PEC OBA Manual of Accreditation--2019 have been addressed/verified.
+\end{enumerate}
+
+\bigskip
+\pagenumbering{gobble} % Hide page numbers
+
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{@{}>{\centering\arraybackslash}p{0.07\textwidth}p{0.47\textwidth}p{0.33\textwidth}>{\centering\arraybackslash}p{0.08\textwidth}@{}}
+\toprule
+\textbf{S. No.} & \textbf{Qualifying Requirement} & \textbf{HEI Check / Remarks} & \textbf{PEC} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{S. No.} & \textbf{Qualifying Requirement} & \textbf{HEI Check / Remarks} & \textbf{PEC} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+i & Legal status/requirement from relevant bodies, specifying the legal arrangement as Charter/Degree Awarding Institution (DAI), constituent or affiliated institution, or any other type. & SEECS is a constituent School of NUST, which is a comprehensive university and chartered DAI. & $\checkmark$ \\
+\addlinespace[2pt]
+ii & Minimum 130 credit hours over four years, including at least 85 credit hours of engineering/computer science and at least 30 credit hours of non-engineering courses. & \textcolor {black}{The program comprises 138+X credit hours, including 95+X engineering/computer science credit hours and 43 non-engineering credit hours over eight semesters.} & $\checkmark$ \\
+\addlinespace[2pt]
+iii & Final Year Design / Capstone Project of 6 credit hours. & The Software Engineering FYDP carries 6 credit hours across the 7\textsuperscript{th} and 8\textsuperscript{th} semesters, irrespective of number of sections/ allowed
+intake of the program.& $\checkmark$ \\
+\addlinespace[2pt]
+iv & Minimum eight full-time dedicated engineering faculty members for one section, with student-teacher ratio not exceeding 25:1. & \textcolor {black}{Full-time engineering faculty is 18; current student-faculty ratio is 15.44:1.} & $\checkmark$ \\
+\addlinespace[2pt]
+v & Progress/Compliance Report (CQI) on the last PEC visit observations/EAB decision. & Compliant. & $\checkmark$ \\
+\addlinespace[2pt]
+vi & Summary of Gap Analysis and initiatives taken for Outcome Based Assessment implementation. & Summary of Gap Analysis and initiatives is provided in the SAR. & $\checkmark$ \\
+\addlinespace[2pt]
+vii & Duly completed and signed SAR as per prescribed format. & SAR is prepared as per the PEC accreditation manual format. & $\checkmark$ \\
+\end{longtable}
+\endgroup
+
+\vspace{1cm}
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item The Self-Assessment Report (SAR) is hereby submitted for consideration of PEC EA\&QEC/EAB to process accreditation of the BE Software Engineering program (2023 and onwards batches).
+\end{enumerate}
+
+\vspace{2.5cm}
+
+\noindent\begin{tabular}{@{}p{0.47\textwidth}@{\hspace{0.06\textwidth}}p{0.47\textwidth}@{}}
+Signature:\hrulefill & Signature:\hrulefill\\[0.2cm]
+(Head of the Department) & (Dean/Head of Institution)\\[0.8cm]
+Date:\hrulefill & Date:\hrulefill
+\end{tabular}
+
+\vspace{1.5cm}
+
+\noindent
+Signature:\hrulefill
+
+(Accreditation Department, PEC)
+
+Date:\hrulefill
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document Information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+
+{\Large\textbf{School of Electrical Engineering and Computer Science (SEECS), NUST}}
+
+\vspace{0.4cm}
+
+{\Large\textbf{Self-Assessment Report}}
+
+\vspace{0.2cm}
+
+\textbf{(October 2026)}
+
+\vspace{1cm}
+
+{\Large\textbf{Document Information and Revision History}}
+
+\end{center}
+
+\vspace{0.7cm}
+
+
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{@{}p{0.25\textwidth}p{0.70\textwidth}@{}}
+\toprule
+\textbf{Category} & \textbf{Information}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Category} & \textbf{Information}\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Document & Self-Assessment Report (SAR), BESE Program at NUST--SEECS\\
+Version & 1.0\\
+Department & Department of Software Engineering\\
+Contact & Tel: 051-90852167; Fax: 051-8317363\\
+Status & DOCUMENT SUBMITTED FOR PEC REVIEW\\
+Author(s) &  Dr. Aimal Tariq Rextin; Dr. Zuhair Zafar; Dr. Bilal Ali; Dr. Daud Abdullah; Ms. Hirra Anwar; Dr. Hashir Moheed Kiyani;  Dr. Sidra Sultana; Dr. Muhammad Ashraf; Ms. Mehwish Kiran; Dr. Ayesha Maqbool\\
+Reviewer(s) & Dr. Momina Moetesum (HoD-SE);  Course Contents Reviewers: All SE Faculty\\
+Approver & Dr. Faisal Shafait (Prof.); Engr. Taufique-ur-Rehman (DLQEC, SEECS); Dr. Muhammad Ashraf (Asst. Prof. of Practice); Ms. Mehwish Kiran (DLQEC, Software Engineering Department)\\
+Issue Date & 15\textsuperscript{th} October 2026\\
+Distribution & \textbf{External:} Director Quality Assurance NUST, Director Academics NUST\\
+ & \textbf{Internal:} Associate Dean (DoC) SEECS, Director LQEC SEECS\\
+Disclaimer & This document contains confidential information. Do not distribute without prior approval from NUST School of Electrical Engineering and Computer Science.\\
+\end{longtable}
+\endgroup
+
+% ---- Front Matter ----
+%\pagenumbering{roman}
+\hypersetup{pageanchor=true}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+% ============================================================
+% CHAPTER 1 — Introduction
+% Images: images/front_matter/media/
+% ============================================================
+\graphicspath{{images/front_matter/media/}}
+\input{chapter1_introduction}
+\clearpage
+
+% ============================================================
+% CHAPTER 2 — Criterion 1: Program Educational Objectives
+% Images: images/criterion_1/media/
+% ============================================================
+\graphicspath{{images/criterion_1/media/}}
+\input{Criterion_1_2026}
+\clearpage
+
+% ============================================================
+% CHAPTER 3 — Criterion 2: Program Learning Outcomes
+% Images: images/criterion_2/media/
+% ============================================================
+\graphicspath{{images/criterion_2/media/}}
+\input{Criterion_2_2026}
+\clearpage
+
+% ============================================================
+% CHAPTER 4 — Criterion 3: Curriculum and Learning Process
+% Images: images/criterion_3/media/
+% ============================================================
+\graphicspath{{images/criterion_3/media/}}
+\input{Criterion_3_2026}
+\clearpage
+
+% ============================================================
+% CHAPTER 5 — Criterion 4: Students
+% Images: images/criterion_4/media/
+% ============================================================
+\graphicspath{{images/criterion_4/media/}}
+\input{Criterion_4_2026}
+\clearpage
+
+% ============================================================
+% CHAPTER 6 — Criterion 5: Faculty and Support Staff
+% Images: images/criterion_5/media/
+% ============================================================
+\graphicspath{{images/criterion_5/media/}}
+\input{Criterion_5_2026}
+\clearpage
+
+% ============================================================
+% CHAPTER 7 — Criterion 6: Facilities and Infrastructure
+%Images: images/criterion_6/media/
+% ============================================================
+\graphicspath{{images/criterion_6/media/}}
+\input{Criterion_6_2026}
+\clearpage
+
+% ============================================================
+% CHAPTER 8 — Criterion 7: Institutional Support and Financial Resources
+% Images: images/criterion_7/media/
+% ============================================================
+\graphicspath{{images/criterion_7/media/}}
+\input{Criterion_7_2026}
+\clearpage
+
+% ============================================================
+% CHAPTER 9 — Criterion 8: Continual Quality Improvement
+% Images: images/criterion_8/media/
+% ============================================================
+\graphicspath{{images/criterion_8/media/}}
+\input{Criterion_8_2026}
+\clearpage
+
+% ============================================================
+% CHAPTER 10 — Criterion 9: Industrial Linkages
+% Images: images/criterion_9/media/
+% ============================================================
+\graphicspath{{images/criterion_9/media/}}
+\input{Criterion_9_2026}
+\clearpage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+    {\Huge\bfseries Annexures}
+\end{center}
+\vspace*{\fill}
+\clearpage
+% ============================================================
+% APPENDICES — Supporting Evidence Organized by Criterion
+% ============================================================
+\appendix
+\clearpage
+\pagestyle{plain}
+\pagenumbering{roman} % Hide page numbers
+\renewcommand{\appendixname}{Annexure}
+\setcounter{chapter}{0}
+\input{appendices/criterion_1/Criterion_1_Annexures}
+\clearpage
+\input{appendices/criterion_2/Criterion_2_Annexures}
+\clearpage
+\input{appendices/criterion_3/Criterion_3_Annexures}
+\clearpage
+\input{appendices/criterion_4/Criterion_4_Annexures}
+\clearpage
+\input{appendices/criterion_5/Criterion_5_Annexures}
+\clearpage
+\input{appendices/criterion_6/Criterion_6_Annexures}
+\clearpage
+\input{appendices/criterion_7/Criterion_7_Annexures}
+\clearpage
+\input{appendices/criterion_8/Criteria8_Annexures}
+\clearpage
+\input{appendices/criterion_9/criterion_9_appendex}
+\clearpage
+%\renewcommand{\thechapter}{I\arabic{chapter}}
+
+
+%\clearpage
+
+%\input{annexures/AnnexI1}
+%\input{annexures/AnnexI2}
+%\input{annexures/AnnexI3}
+%\input{annexures/AnnexI4}
+%\input{annexures/AnnexI5}
+%\input{annexures/AnnexI6}
+%\input{annexures/AnnexI7}
+%\input{annexures/AnnexI8}
+
+
+
+%\input{appendices/criterion_6/Facilities_Annexures}
+
+
+
+%\input{appendices/criterion_3/Criterion_3_Annexures}
+%\clearpage
+% ============================================================
+\end{document}

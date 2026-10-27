@@ -1,0 +1,53 @@
+\clearpage
+\setcounter{section}{0}
+\renewcommand{\thesection}{I.\arabic{section}}
+\renewcommand{\theHsection}{annexI.\arabic{section}}
+
+\phantomsection
+\addcontentsline{toc}{chapter}{Annexure I: Criteria 9 Supporting Documents}
+\label{app:criteria-9}
+
+\refstepcounter{section}
+\phantomsection
+\label{app:post}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}Faculty Industrial Placement Post Visit Report}
+
+% ---- Heading block defined as a (long) macro, so \par is allowed ----
+\newcommand{\annexIFirstPageHead}{%
+  \noindent{\Huge\bfseries Annexure I: Criteria 9 Supporting Documents}\par
+  \vspace{0.8em}
+  \noindent Here we provide the supporting annexures required for Criterion 9: Industry Linkages.\par
+  \vspace{0.8em}
+  \noindent{\Large\bfseries\thesection\quad 
+  Faculty Industrial Placement Post Visit Report}\par
+}
+
+% ---- Page 1: heading + shrunk PDF page ----
+\includepdf[
+  pages={1},
+  scale=0.9,
+  offset=0 -3.2cm,
+  pagecommand={\thispagestyle{plain}\annexIFirstPageHead}
+]{appendices/criterion_9/post.pdf}
+
+% ---- Pages 2 to end: unchanged ----
+\includepdf[
+  pages={2-},
+  pagecommand={\thispagestyle{plain}}
+]{appendices/criterion_9/post.pdf}
+
+\refstepcounter{section}
+\phantomsection
+\label{annex:industryproj}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}Sample Industry FYDPs}
+\includepdf[
+  pages={1},
+  scale=0.90,
+  offset=0 -1.2cm,
+  pagecommand={\thispagestyle{plain}\noindent{\Large\bfseries\thesection\quad Sample Industry FYDPs}}
+]{appendices/criterion_9/Industry_Projects.pdf}
+
+\includepdf[
+  pages={2-},
+  pagecommand={\thispagestyle{plain}}
+]{appendices/criterion_9/Industry_Projects.pdf}

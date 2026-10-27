@@ -1,0 +1,86 @@
+\clearpage
+\setcounter{section}{0}
+\renewcommand{\thesection}{F.\arabic{section}}
+\renewcommand{\theHsection}{annexF.\arabic{section}}
+
+\phantomsection
+\addcontentsline{toc}{chapter}{Annexure F: Criteria 6 Supporting Documents}
+\label{app:criteria-6}
+
+\refstepcounter{section}
+\phantomsection
+\label{annex:labs_labwork}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}Laboratories and Lab Work}
+
+% ---- Heading block defined as a (long) macro, so \par is allowed ----
+\newcommand{\annexFFirstPageHead}{%
+  \noindent{\Huge\bfseries Annexure F: Criteria 6 Supporting Documents}\par
+  \vspace{0.8em}
+  \noindent Here we provide the supporting annexures required for Criterion 6: Facilities and Infrastructure.\par
+  \vspace{0.8em}
+  \noindent{\Large\bfseries\thesection\quad 
+  Laboratories and Lab Work}\par
+}
+
+% ---- Page 1: heading + shrunk PDF page ----
+\includepdf[
+  pages={1},
+  scale=0.95,
+  landscape,
+  offset=0 -0.2cm,
+  pagecommand={\thispagestyle{plain}\annexFFirstPageHead}
+]{appendices/criterion_6/Lab_data.pdf}
+
+% ---- Pages 2 to end: unchanged ----
+\includepdf[
+  pages={2-},
+  landscape,
+  pagecommand={\thispagestyle{plain}}
+]{appendices/criterion_6/Lab_data.pdf}
+
+
+%\includefullannexure{appendices/criterion_6/Laboratories_and_Labwork.pdf}
+
+\refstepcounter{section}
+\phantomsection
+\label{annex:NUST healthsafetypolicy}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}NUST Health, Safety and Envrionment Policy}
+\includepdf[
+  pages={1},
+  scale=0.90,
+  offset=0 -1.2cm,
+  pagecommand={\thispagestyle{plain}\noindent{\Large\bfseries\thesection\quad NUST Health, Safety and Envrionment Policy}}
+]{appendices/criterion_6/health.pdf}
+
+\includepdf[
+  pages={2-},
+  pagecommand={\thispagestyle{plain}}
+]{appendices/criterion_6/health.pdf}
+
+%\section{NUST Health, Safety and Envrionment Policy}
+%\label{annex:NUST healthsafetypolicy}
+%\includefullannexure{appendices/criterion_6/University_health_safety_and_environment_policy.pdf}
+
+\refstepcounter{section}
+\phantomsection
+\label{annex:work health safety checklist}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}Work, Health and Safety Induction Checklist}
+\includepdf[
+  pages={1},
+  scale=0.90,
+  offset=0 -2.2cm,
+  pagecommand={\thispagestyle{plain}\noindent{\Large\bfseries\thesection\quad Work, Health and Safety Induction Checklist}}
+]{appendices/criterion_6/Work_health_and_safety_induction_checklist.pdf}
+
+\includepdf[
+  pages={2-},
+  pagecommand={\thispagestyle{plain}}
+]{appendices/criterion_6/Work_health_and_safety_induction_checklist.pdf}
+
+
+
+
+
+
+
+
